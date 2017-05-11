@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;  //NOTE store port from heroku or whereever.  Local default set to 3000
 let app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -62,21 +63,12 @@ app.get('/about', (req, res) => {
   });
 })
 
-// app.get('/maintainance', (req, res) => {
-//   res.render('maintainance.hbs', {
-//     pageTitle: "We'll be right back!",
-//     welcomeMessage: "The site is currently being updated."
-//   })
-// })
-
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Unable to handle request'
   });
 })
 
-
-
-app.listen(3000, ()=>{
-  console.log('Server is up on port 3000!');
+app.listen(port, ()=>{
+  console.log(`Server is up on port ${port}!`);
 });
