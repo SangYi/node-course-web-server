@@ -20,13 +20,13 @@ app.use((req, res, next) => {
   });
   next();//NOTE next needs to be called to tell express tha tmiddleware function has been completed
 })
-
-app.use((req, res, next) => {
-  res.render('maintainance.hbs', {
-    pageTitle: "We'll be right back!",
-    welcomeMessage: "The site is currently being updated."
-  })
-})
+// Maintainance
+// app.use((req, res, next) => {
+//   res.render('maintainance.hbs', {
+//     pageTitle: "We'll be right back!",
+//     welcomeMessage: "The site is currently being updated."
+//   })
+// })
 
 app.use(express.static(__dirname +'/public'));  //app.use - how you registers middleware
 
